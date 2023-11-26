@@ -1,0 +1,49 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Camera Streaming</title>
+</head>
+<body>
+    <img src="{{ url_for('video_feed') }}" width="640" height="480">
+</body>
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Video Emotion Analysis</title>
+</head>
+<body>
+    <input type="file" id="videoFile" accept="video/*">
+    <button onclick="analyzeVideo()">Analyze</button>
+
+    <div id="output">
+        <!-- Emotion plot will be displayed here -->
+    </div>
+
+    <script>
+        async function analyzeVideo() {
+            const fileInput = document.getElementById('videoFile');
+            const formData = new FormData();
+            formData.append('file', fileInput.files[0]);
+
+            try {
+                const response = await fetch('http://127.0.0.1:9000/analyze_video', {
+                    method: 'POST',
+                    body: formData,
+                });
+
+                const imageBlob = await response.blob();
+                const imageUrl = URL.createObjectURL(imageBlob);
+
+                const outputDiv = document.getElementById('output');
+                outputDiv.innerHTML = `<img src="${imageUrl}" alt="Emotion Plot">`;
+            } catch (error) {
+                console.error('Error analyzing video:', error);
+            }
+        }
+    </script>
+</body>
+</html>
