@@ -1,7 +1,9 @@
 # Interview_analysis_ML
 <<<<<<< HEAD
-This Project is made to analyse the video interview using Machine Learning.
-Installing Dependencies : 
+# This Project is made to analyse the video interview using Machine Learning.
+# tech used
+#React , #flask, #ML libraries 
+# Installing Dependencies : 
 clone the project 
 download all the python dependencies using command : 
 
@@ -13,8 +15,23 @@ go to emotion_sent directory and type :
 
 npm install
 
+# to run we need to run three python scripts and react front_end
+in the root directory 
+
+python3 app.py
+
+go inside deepfacerec and run 
+
+pythoon3 deep.py
+python3 vidup.py
+
+back to root and go inside the emotion_sent folder and typr
+
+npm start
 
 
-=======
-# Interview_analysis_ML
->>>>>>> 9b8f0519a0d75842af7a9bb685dfd6d7d1de61a3
+
+
+
+
+
